@@ -25,6 +25,8 @@ chrome.runtime.onMessage.addListener(
         index: -1,
         windowId: windowId,
       });
+
+      await chrome.tabs.update(tabId, { active: true });
     } catch (error) {
       console.error(`Failed to move to window ${error}`);
     }

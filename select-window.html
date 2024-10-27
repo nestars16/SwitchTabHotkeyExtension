@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      .window-list-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .window-list-item {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1.5rem auto;
+      }
+
+      .window-list-item > div {
+        display: flex;
+        align-items: center;
+        place-items: center;
+        justify-items: center;
+      }
+
+      .window-list-item > div > button {
+        min-width: 1.5rem;
+        height: 20px;
+      }
+
+      section {
+        width: 20rem;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="window-list">
+      <h1>Pick a window</h1>
+    </section>
+  </body>
+  <script src="select-window.js"></script>
+</html>

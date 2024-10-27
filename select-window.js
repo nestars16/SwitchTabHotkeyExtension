@@ -6,6 +6,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   );
 
   const windowOptionContainer = document.getElementById("window-list");
+
+  if (windows.length === 0) {
+    const emptyText = document.createElement("p");
+    emptyText.textContent = "There is only one window open, use Alt+W instead!";
+    windowOptionContainer.appendChild(emptyText);
+    return;
+  }
+
   const windowItems = document.createElement("div");
   windowItems.classList.add("window-list-container");
   const tableRow = await Promise.all(
@@ -55,9 +63,11 @@ async function notifyServiceWorker(windowId) {
     return;
   }
   const message = {
+    type: "existing",
     windowId: windowId,
     tabId: currentTab.id,
   };
+
   console.log(`Sending message ${message}`);
   chrome.runtime.sendMessage(message);
 }
